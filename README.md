@@ -17,7 +17,7 @@ vagrant ssh ansible-control
 
 5. Install ansible(latest version, otherwise galaxy roles won't work)
 ``` shell
-sudo apt isntall ansible -y
+sudo apt install ansible -y
 ```
 
 6. Copy hosts for ansible-control
