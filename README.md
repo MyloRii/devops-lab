@@ -15,7 +15,7 @@ vagrant up
 vagrant ssh ansible-control
 ```
 
-5. Install ansible
+5. Install ansible(latest version, otherwise galaxy roles won't work)
 ``` shell
 sudo apt isntall ansible -y
 ```
@@ -31,6 +31,27 @@ ssh-keygen
 ```
 
 8. Copy ssh-key to all hosts
+ssh-copy-id {hostname1} && ssh-copy-id {hostname2} etc ...
+
+9. Install simplejson
 ``` shell
-ssh-copy-id {hostname}
+ansible all -i hosts -m command -a 'sudo apt install -y python-simplejson'
 ```
+
+10. Install galaxy roles if needed
+``` shell
+ansible-galaxy role install geerlingguy.docker
+```
+
+11. Execute single playbooks
+``` shell
+ansible-playbook -i inventories/dev install_docker.yml
+```
+
+12. Run all playbooks
+``` shell
+ansible-playbook -i inventories/dev playbook.yml
+```
+
+NOTE: Playbooks outside roles should should have 'tasks', 'hosts' and 'become'
+Use ansible all -i inventories/dev -m debug -a "msg='{{ welcome_msg }}'" to check set env. vars in groups_vars

@@ -1,0 +1,12 @@
+---
+- name: Install multiple packages with apt
+  ansible.builtin.apt:
+    name:
+      - pydf
+      - tree
+      - open-vm-tools
+      - python-pip
+      - yamllint
+    state: present
+  tags:
+    - installation

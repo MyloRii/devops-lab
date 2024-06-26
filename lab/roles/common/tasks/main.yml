@@ -1,0 +1,11 @@
+---
+# tasks file for roles/common
+
+- name: Include installation tools tasks
+  include_tasks: install_tools.yml
+
+- name: Include update tasks for Linux systems
+  include_tasks: update_linux.yml
+
+- name: Include system configuration tasks
+  include_tasks: system_configuration.yml

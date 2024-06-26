@@ -1,0 +1,6 @@
+---
+- name: Ensure user vagrant is added to the docker group
+  user:
+    name: vagrant
+    groups: docker
+    append: yes # Ensure we are adding to existing groups, not replacing them

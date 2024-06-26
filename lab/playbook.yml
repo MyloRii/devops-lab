@@ -1,0 +1,22 @@
+- hosts: webservers
+  become: yes
+  roles:
+    - common
+    - docker
+  tags:
+    web
+
+- hosts: proxy
+  become: yes
+  roles:
+    - common
+    - docker
+  tags:
+    proxy
+
+- hosts: database
+  become: yes
+  roles:
+    - common
+    - docker
+  tags: database
