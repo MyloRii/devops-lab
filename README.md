@@ -55,3 +55,5 @@ ansible-playbook -i inventories/dev playbook.yml
 
 NOTE: Playbooks outside roles should should have 'tasks', 'hosts' and 'become'
 Use ansible all -i inventories/dev -m debug -a "msg='{{ welcome_msg }}'" to check set env. vars in groups_vars
+
+NOTE: Usefull vargrant commands: vagrant halt - to stop all VM's; vagrant global-status to check all VM's
